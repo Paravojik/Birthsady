@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .wrap{
+            width: 100%;
+            min-height: 100vh;
+            padding: 20px 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgb(218, 243, 251);
+        }
+        .cardOfenter{
+            width: 60%;
+            height: 50vh;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+        }
+        .cardOfenter__inp{
+            width: 45%;
+            height: 8vh;
+            font-size: 16px;
+            color: rgb(118, 118, 118);
+            display: flex;
+            flex-direction: column;
+            font-weight: 600;
+
+        }
+        .YourInp{
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            border-bottom: 2px solid black;
+            border-radius: 10px;
+            background-color: white;
+            padding: 0 5px;
+            height: 50px;
+            font-size: 32px;
+            margin-bottom: 8px;
+            color: black;
+        }
+        .countText{
+            font-size: 44px;
+            font-weight: 600;
+            margin-bottom: 50px;
+        }
+        .cardOfenter__youWasBorn{
+            margin-top: 50px;
+            font-size: 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .cardOfenter__youWasBorn__day{
+            font-size: 46px;
+            font-weight: 600;
+        }
+        .cardOfenter__time__spent{
+            font-size: 24px;
+
+        }
+        .allOfYou{
+            width: 60%;
+            min-height: 0vh;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+    
+        }
+        .allOfYou__box{
+            width: 45%;
+            max-height: 20vh;
+            box-shadow: 0 0 10px rgb(189, 189, 189);
+            background-color: white;
+            border-radius: 30px;
+            padding: 20px 40px;
+            margin: 30px 0;
+            flex-direction: column;
+            
+        }
+        .allOfYou__box__text{
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .allOfYou__box__data{
+font-size: 40px;
+font-weight: 600;
+        }
+        #allOfYou__box1{
+            display: none;
+        }
+        #allOfYou__box2{
+            display: none;
+        }
+        #allOfYou__box3{
+            display: none;
+        }
+        #allOfYou__box4{
+            display: none;
+        }
+
+           #allOfYou__box5{
+            display: none;
+        }
+        #allOfYou__box6{
+            display: none;
+        }
+        
+    </style>
+
+    <div class="wrap">
+        <div class="countText">Count how old you are:</div>
+        <div class="cardOfenter">
+            <div id="cardOfenter__inp1" class="cardOfenter__inp">
+                <input id="YourInp1" class="YourInp" type="text" placeholder="Enter Year you are born">
+                It's reguired input
+            </div>
+           
+
+            <div id="cardOfenter__inp2" class="cardOfenter__inp">
+                <input id="YourInp2" class="YourInp" type="text" placeholder="Enter Month(full)">
+                It's reguired input
+            </div>
+            <div id="cardOfenter__inp3" class="cardOfenter__inp">
+                <input id="YourInp3" class="YourInp" type="text" placeholder="Enter Day">
+                It's reguired input
+            </div>
+            <div id="cardOfenter__inp4" class="cardOfenter__inp">
+                <input id="YourInp4" class="YourInp" type="text" placeholder="Enter hour">
+                It's not reguired input
+            </div>
+            <div id="cardOfenter__inp5" class="cardOfenter__inp">
+                <input id="YourInp5" class="YourInp" type="text" placeholder="Enter minute">
+                It's not reguired input
+            </div>
+            <div id="cardOfenter__inp6" class="cardOfenter__inp">
+                <input id="YourInp6" class="YourInp" type="text" placeholder="Enter second">
+                It's not reguired input
+            </div>
+        </div>
+      <div class="cardOfenter__youWasBorn">
+        Day when you born
+        <div class="cardOfenter__youWasBorn__day" id="cardOfenter__youWasBorn__day"></div>
+      </div>
+      <div class="allOfYou">
+        <div  class="allOfYou__box" id="allOfYou__box1">
+            <div class="allOfYou__box__text" id="allOfYou__box__text1">Full Years:</div>
+            <div class="allOfYou__box__data" id="allOfYou__box__data1">1000 Days</div>
+        </div>
+        <div class="allOfYou__box" id="allOfYou__box2">
+            <div class="allOfYou__box__text" id="allOfYou__box__text2">Full Months:</div>
+            <div class="allOfYou__box__data" id="allOfYou__box__data2">1000 Days</div>
+        </div>
+        <div data-aos="zoom-in" class="allOfYou__box" id="allOfYou__box3">
+            <div class="allOfYou__box__text" id="allOfYou__box__text3">Full Days:</div>
+            <div class="allOfYou__box__data" id="allOfYou__box__data3">1000 Days</div>
+        </div>
+        <div data-aos="zoom-in" class="allOfYou__box" id="allOfYou__box4">
+            <div class="allOfYou__box__text" id="allOfYou__box__text4">Full Hours:</div>
+            <div class="allOfYou__box__data" id="allOfYou__box__data4">1000 Days</div>
+        </div>
+        <div data-aos="zoom-in" class="allOfYou__box" id="allOfYou__box5">
+            <div class="allOfYou__box__text" id="allOfYou__box__text5">Full Minutes:</div>
+            <div class="allOfYou__box__data" id="allOfYou__box__data5">1000 Days</div>
+        </div>
+        <div data-aos="zoom-in" class="allOfYou__box" id="allOfYou__box6">
+            <div class="allOfYou__box__text" id="allOfYou__box__text6">Full Seconds:</div>
+            <div class="allOfYou__box__data" id="allOfYou__box__data6">1000 Days</div>
+        </div>
+      </div>
+      <!-- <div class="cardOfenter__time__spent" id="cardOfenter__time__spent"></div> -->
+    </div>
+</head>
+<body>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+  AOS.init();
+
+
+
+
+
+YourInp1.value=localStorage.getItem('Inp1__ls') || ''
+YourInp2.value=localStorage.getItem('Inp2__ls') || ''
+YourInp3.value=localStorage.getItem('Inp3__ls') || ''
+YourInp4.value=localStorage.getItem('Inp4__ls') || ''
+YourInp5.value=localStorage.getItem('Inp5__ls') || ''
+YourInp6.value=localStorage.getItem('Inp6__ls') || ''
+if(YourInp1.value.length>0 && YourInp2.value.length>0 && YourInp3.value.length>0){
+cardOfenter__youWasBorn__day.innerText =localStorage.getItem('Your__Birthaday').substring(0,24)}
+        // cardOfenter__time__spent.innerText='Full Years: '+howManyYears()+'    Full Months: '+howManyMonth()+'   Full Days: '+howManyDays()+'Full Hours: '+howManyHours()+'    Full Minutes: '+howManyMinutes()+'   Full Seconds: '+howManySeconds()
+YourInp1.oninput = function(){
+    localStorage.setItem('Inp1__ls',YourInp1.value)
+    isAllEnter()
+    if(YourInp1.value.length>0 && YourInp2.value.length>0 && YourInp3.value.length>0){
+        showInfo()
+        console.log(checkBirhthsdayStatistic(YourInp1.value,YourInp2.value,YourInp3.value,YourInp4.value,YourInp5.value,YourInp6.value))
+        localStorage.setItem('Your__Birthaday',checkBirhthsdayStatistic(YourInp1.value,YourInp2.value,YourInp3.value,YourInp4.value,YourInp5.value,YourInp6.value))
+        cardOfenter__youWasBorn__day.innerText =localStorage.getItem('Your__Birthaday').substring(0,24)
+        // cardOfenter__time__spent.innerText='Full Years: '+howManyYears()+'    Full Months: '+howManyMonth()+'   Full Days: '+howManyDays()+'Full Hours: '+howManyHours()+'    Full Minutes: '+howManyMinutes()+'   Full Seconds: '+howManySeconds()
+    }
+}
+YourInp2.oninput = function(){
+    localStorage.setItem('Inp2__ls',YourInp2.value)
+    isAllEnter()
+    if(YourInp1.value.length>0 && YourInp2.value.length>0 && YourInp3.value.length>0){
+        showInfo()
+        console.log(checkBirhthsdayStatistic(YourInp1.value,YourInp2.value,YourInp3.value,YourInp4.value,YourInp5.value,YourInp6.value))
+        localStorage.setItem('Your__Birthaday',checkBirhthsdayStatistic(YourInp1.value,YourInp2.value,YourInp3.value,YourInp4.value,YourInp5.value,YourInp6.value))
+        cardOfenter__youWasBorn__day.innerText =localStorage.getItem('Your__Birthaday').substring(0,24)
+        // cardOfenter__time__spent.innerText='Full Years: '+howManyYears()+'    Full Months: '+howManyMonth()+'   Full Days: '+howManyDays()+'Full Hours: '+howManyHours()+'    Full Minutes: '+howManyMinutes()+'   Full Seconds: '+howManySeconds()
+    }
+}
+YourInp3.oninput = function(){
+    isAllEnter()
+    localStorage.setItem('Inp3__ls',YourInp3.value)
+    if(YourInp1.value.length>0 && YourInp2.value.length>0 && YourInp3.value.length>0){
+        showInfo()
+        console.log(checkBirhthsdayStatistic(YourInp1.value,YourInp2.value,YourInp3.value,YourInp4.value,YourInp5.value,YourInp6.value))
+        localStorage.setItem('Your__Birthaday',checkBirhthsdayStatistic(YourInp1.value,YourInp2.value,YourInp3.value,YourInp4.value,YourInp5.value,YourInp6.value))
+        cardOfenter__youWasBorn__day.innerText =localStorage.getItem('Your__Birthaday').substring(0,24)
+        // cardOfenter__time__spent.innerText='Full Years: '+howManyYears()+'    Full Months: '+howManyMonth()+'   Full Days: '+howManyDays()+'Full Hours: '+howManyHours()+'    Full Minutes: '+howManyMinutes()+'   Full Seconds: '+howManySeconds()
+    }
+}
+YourInp4.oninput = function(){
+    isAllEnter()
+    localStorage.setItem('Inp4__ls',YourInp4.value)
+    if(YourInp1.value.length>0 && YourInp2.value.length>0 && YourInp3.value.length>0){
+        showInfo()
+        console.log(checkBirhthsdayStatistic(YourInp1.value,YourInp2.value,YourInp3.value,YourInp4.value,YourInp5.value,YourInp6.value))
+        localStorage.setItem('Your__Birthaday',checkBirhthsdayStatistic(YourInp1.value,YourInp2.value,YourInp3.value,YourInp4.value,YourInp5.value,YourInp6.value))
+        cardOfenter__youWasBorn__day.innerText =localStorage.getItem('Your__Birthaday').substring(0,24)
+        // cardOfenter__time__spent.innerText='Full Years: '+howManyYears()+'    Full Months: '+howManyMonth()+'   Full Days: '+howManyDays()+'Full Hours: '+howManyHours()+'    Full Minutes: '+howManyMinutes()+'   Full Seconds: '+howManySeconds()
+    }
+}
+YourInp5.oninput = function(){
+    isAllEnter()
+    localStorage.setItem('Inp5__ls',YourInp5.value)
+    if(YourInp1.value.length>0 && YourInp2.value.length>0 && YourInp3.value.length>0){
+        showInfo()
+        console.log(checkBirhthsdayStatistic(YourInp1.value,YourInp2.value,YourInp3.value,YourInp4.value,YourInp5.value,YourInp6.value))
+        localStorage.setItem('Your__Birthaday',checkBirhthsdayStatistic(YourInp1.value,YourInp2.value,YourInp3.value,YourInp4.value,YourInp5.value,YourInp6.value))
+        cardOfenter__youWasBorn__day.innerText =localStorage.getItem('Your__Birthaday').substring(0,24)
+        // cardOfenter__time__spent.innerText='Full Years: '+howManyYears()+'    Full Months: '+howManyMonth()+'   Full Days: '+howManyDays()+'Full Hours: '+howManyHours()+'    Full Minutes: '+howManyMinutes()+'   Full Seconds: '+howManySeconds()
+    }
+}
+YourInp6.oninput = function(){
+    isAllEnter()
+    localStorage.setItem('Inp6__ls',YourInp6.value)
+    if(YourInp1.value.length>0 && YourInp2.value.length>0 && YourInp3.value.length>0){
+        showInfo()
+        console.log(checkBirhthsdayStatistic(YourInp1.value,YourInp2.value,YourInp3.value,YourInp4.value,YourInp5.value,YourInp6.value))
+        localStorage.setItem('Your__Birthaday',checkBirhthsdayStatistic(YourInp1.value,YourInp2.value,YourInp3.value,YourInp4.value,YourInp5.value,YourInp6.value))
+        cardOfenter__youWasBorn__day.innerText =localStorage.getItem('Your__Birthaday').substring(0,24)
+        // cardOfenter__time__spent.innerText='Full Years: '+howManyYears()+'    Full Months: '+howManyMonth()+'   Full Days: '+howManyDays()+'Full Hours: '+howManyHours()+'    Full Minutes: '+howManyMinutes()+'   Full Seconds: '+howManySeconds()
+    }
+}
+
+
+
+function TiTopoviKomovu(chuclo) {
+    let finalChuclo = ''
+    let lasPart;
+    let newPart =chuclo
+//     if(chuclo.length>3){
+//  lasPart =chuclo%1000
+//     }
+let i=0
+let nadil =1000
+
+while(chuclo.length>i){
+    i=i+3;
+    lasPart =newPart%nadil;
+   newPart = Math.floor(newPart/nadil)
+    // nadil=nadil*1000
+    if(finalChuclo.length>0){
+        finalChuclo =lasPart+','+finalChuclo
+       
+    }else{
+        finalChuclo =lasPart+finalChuclo
+     
+    }
+    
+    // console.log(lasPart)
+}
+// console.log(finalChuclo)
+    return finalChuclo
+    // finalChuclo=''
+    // i=0;
+}
+
+function isAllEnter(){
+    if(YourInp1.value.length==0){
+        cardOfenter__inp1.style.color='red'
+        // alert('sdffsd')
+    }else{
+        cardOfenter__inp1.style.color='rgb(118, 118, 118)'    
+    }
+    if(YourInp2.value.length==0){
+        cardOfenter__inp2.style.color='red'
+    }else{
+        cardOfenter__inp2.style.color='rgb(118, 118, 118)'    
+    }
+    if(YourInp3.value.length==0){
+        cardOfenter__inp3.style.color='red'
+    }else{
+        cardOfenter__inp3.style.color='rgb(118, 118, 118)'    
+    }
+}
+isAllEnter()
+showInfo()
+
+
+function showInfo(){
+    if(YourInp1.value.length>0 && YourInp2.value.length>0 && YourInp3.value.length>0){
+    allOfYou__box1.style.display='flex'
+    allOfYou__box2.style.display='flex'
+    allOfYou__box3.style.display='flex'
+    allOfYou__box4.style.display='flex'
+    allOfYou__box5.style.display='flex'
+    allOfYou__box6.style.display='flex'
+    allOfYou__box__data1.innerText=TiTopoviKomovu(howManyYears().toString())
+    allOfYou__box__data2.innerText=TiTopoviKomovu(howManyMonth().toString()) 
+    allOfYou__box__data3.innerText=TiTopoviKomovu(howManyDays().toString())
+    allOfYou__box__data4.innerText=TiTopoviKomovu(howManyHours().toString())
+    allOfYou__box__data5.innerText=TiTopoviKomovu(howManyMinutes().toString())
+     allOfYou__box__data6.innerText=TiTopoviKomovu(howManySeconds().toString())}
+}
+
+console.log(TiTopoviKomovu(howManyMonth().toString()))
+
+
+
+
+
+
+
+
+
+
+
+function howManyYears(){
+    let milisecondCurrent =new Date()
+    let milisecond =Date.parse(localStorage.getItem('Your__Birthaday'))
+    let finalTime=(milisecondCurrent-milisecond)/ (1000 * 60 * 60 * 24 * 365.25)
+    return Math.round(finalTime)
+}
+function howManyDays(){
+    let milisecondCurrent =new Date()
+    let milisecond =Date.parse(localStorage.getItem('Your__Birthaday'))
+    let finalTime=(milisecondCurrent-milisecond)/  (1000 * 60 * 60 * 24) 
+    return Math.round(finalTime)
+}
+function howManyMonth(){
+    let milisecondCurrent =new Date()
+    let milisecond =Date.parse(localStorage.getItem('Your__Birthaday'))
+    let finalTime=(milisecondCurrent-milisecond)/ (1000 * 60 * 60 * 24 * 365.25/12)
+    return Math.round(finalTime)
+}
+function howManyHours(){
+    let milisecondCurrent =new Date()
+    let milisecond =Date.parse(localStorage.getItem('Your__Birthaday'))
+    let finalTime=(milisecondCurrent-milisecond)/ (1000 * 60 * 60)
+    return Math.round(finalTime)
+}
+function howManyMinutes(){
+    let milisecondCurrent =new Date()
+    let milisecond =Date.parse(localStorage.getItem('Your__Birthaday'))
+    let finalTime=(milisecondCurrent-milisecond)/  (1000 * 60 ) 
+    return Math.round(finalTime)
+}
+function howManySeconds(){
+    let milisecondCurrent =new Date()
+    let milisecond =Date.parse(localStorage.getItem('Your__Birthaday'))
+    let finalTime=(milisecondCurrent-milisecond)/ (1000)
+    return Math.round(finalTime)
+}
+setInterval(function(){
+    showInfo()
+    // cardOfenter__time__spent.innerText='Full Years: '+howManyYears()+'    Full Months: '+howManyMonth()+'   Full Days: '+howManyDays()+'Full Hours: '+howManyHours()+'    Full Minutes: '+howManyMinutes()+'   Full Seconds: '+howManySeconds()
+},500)
+
+
+function checkBirhthsdayStatistic(years,months,days,hours,minutes,seconds){
+    let yourBirthsday
+console.log(new Date(months+' '+days+', '+years+' '+hours+':'+minutes+':'+seconds))
+yourBirthsday= new Date(months+' '+days+', '+years+' '+hours+':'+minutes+':'+seconds)
+let second= seconds
+let minute= minutes
+let hour= hours
+if(second==0){
+     yourBirthsday= new Date(months+' '+days+', '+years+' '+hours+':'+minutes+':0')
+}
+if(minute==0){
+    yourBirthsday= new Date(months+' '+days+', '+years+' '+hours+':0:0')
+}
+if(hour==0){
+    yourBirthsday= new Date(months+' '+days+', '+years+' 0:0:0')
+}
+  
+    let ti= Date.parse(yourBirthsday)
+    console.log(ti)
+    console.log(new Date(ti))
+
+
+return new Date(ti)
+}
+console.log(checkBirhthsdayStatistic(2008,'June',8,16,45,0))
+//         let teacherDb=[]
+//         let teacher={
+//         id: Date.now(),
+//         name:'John',
+//         surname:'Birtex',
+//         mentorIn:'9-V',
+//         subjectList:['Math','Programing'],
+//         teacherIn:['8-A','7-B'],
+//         }
+
+//         let classsesDb=[
+//         {
+//             name:'9-B',
+//             mentor:teacherDb[0],
+//             sydents:[
+//                 {
+//                     name:'peter',
+//                     surname:'Birtex',
+//                     // b_day:
+//                 }
+//             ]
+//         }
+//         ]
+
+// let d=new Date()
+// console.log(Date.parse(d))
+
+// const birthsday = new Date('December 17, 1995 03:24:00');
+// console.log(Date.parse(birthsday))
+// const birthsdayMs=Date.parse(birthsday)
+
+// console.log(birthsday)
+// console.log(birthsdayMs)
+// const date =Date.now()
+// console.log(date)
+
+// const differenceDate=date-birthsdayMs
+// console.log(differenceDate)
+// console.log(new Date(differenceDate))
+
+
+// function dhm(t){
+//   const  years = Math.floor(t / (1000 * 60 * 60 * 24 * 30 * 12));
+//   const months = Math.floor(t / (1000 * 60 * 60 * 24 * 30) % 12);
+//   const days = Math.floor(t / (1000 * 60 * 60 * 24) % 30);
+//  const hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+// const minutes = Math.floor((t / (1000 * 60)) % 60);
+//  const seconds = Math.floor((t / 1000) % 60);
+//  return years+':'+days+':'+hours+':'+minutes
+// }
+// console.log(dhm(846744699515))
+
+//     let da= new Date()
+//     let date=Date.parse(da)
+// console.log(da.getFullYear()-years)
+//     let timeYears=(da.getFullYear()- years)*(1000 * 60 * 60 * 24 * 365.25)
+//     let timeMonths = ( months) *((1000 * 60 * 60 * 24 * 30) )
+//     let timeDays = ( days) *((1000 * 60 * 60 * 24) );
+//     let timeHours = (da.getHours() - hours)* ((1000 * 60 * 60) );
+//     let timeMinutes =(da.getMinutes()- minutes) *((1000 * 60) );
+//     let timeSeconds = (da.getSeconds()- seconds)* ((1000) );
+
+
+
+//     let BirthsdayDate=date-(timeYears+timeMonths+timeDays+timeHours+timeMinutes+timeSeconds)
+//     console.log(date)
+//     console.log(timeYears)
+//     console.log(BirthsdayDate)
+//     console.log(new Date(BirthsdayDate))
+
+
+    </script>
+</body>
+</html>
